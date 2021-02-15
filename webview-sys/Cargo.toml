@@ -17,6 +17,7 @@ path = "lib.rs"
 
 [features]
 edge = []
+docs-rs = [] # for use when building docs, like for docs.rs
 
 [target.'cfg(all(target_family = "unix", not(target_os = "macos")))'.dependencies]
 javascriptcore-rs-sys = "0.2"
@@ -31,3 +32,6 @@ libc = "0.2"
 [build-dependencies]
 cc = "1"
 pkg-config = "0.3"
+
+[package.metadata.docs.rs]
+features = ["docs-rs"]

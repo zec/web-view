@@ -4,6 +4,11 @@ extern crate pkg_config;
 use std::env;
 
 fn main() {
+    // skip C/C++ builds or library detection if this build is for docs.rs
+    if cfg!(feature = "docs-rs") {
+        return;
+    }
+
     let target = env::var("TARGET").unwrap();
 
     if target.contains("linux") || target.contains("bsd") {
